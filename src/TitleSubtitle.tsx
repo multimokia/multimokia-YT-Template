@@ -9,7 +9,7 @@ export const VideoTitleSubtitle: React.FC<{title:string,subtitle:string,minWidth
                 boxShadow: "0px 0px 15px 15px rgba(0,0,0,0.8)",
                 fontFamily: "Litera",
                 color: "gold",
-                fontSize: "2em",
+                fontSize: "140%",
                 textAlign: "left",
                 paddingRight: "3%",
                 paddingTop: "0.5%",
