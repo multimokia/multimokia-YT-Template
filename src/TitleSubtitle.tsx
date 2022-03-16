@@ -1,4 +1,3 @@
-
 export const VideoTitleSubtitle: React.FC<{title:string,subtitle:string,minWidth:string}> = ({children, title, subtitle, minWidth}) => {
     return (
         <div
@@ -7,9 +6,9 @@ export const VideoTitleSubtitle: React.FC<{title:string,subtitle:string,minWidth
                 top: "10%",
                 background: "rgba(0,0,0,0.6)",
                 boxShadow: "0px 0px 15px 15px rgba(0,0,0,0.8)",
-                fontFamily: "Litera",
+                fontFamily: "Poppins",
                 color: "gold",
-                fontSize: "140%",
+                fontSize: "200%",
                 textAlign: "left",
                 paddingRight: "3%",
                 paddingTop: "0.5%",

@@ -6,8 +6,14 @@
   </a>
 </p>
 
-Welcome to your Remotion project!
-
+## Environment Variables:
+```console
+REMOTION_TITLE - video title (optional)
+REMOTION_SUBTITLE - subtitle/credits line (optional)
+REMOTION_SUBTEXT - subtext for the video (optional)
+REMOTION_AUDIO_TRACK - audio to use for the video (required)
+REMOTION_CLICK_TRACK - click track to use for the video (required)
+```
 ## Commands
 
 **Start Preview**

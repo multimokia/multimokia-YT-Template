@@ -1,13 +1,10 @@
 import { Audio, useCurrentFrame, useVideoConfig } from "remotion";
 import { useAudioData, visualizeAudio } from "@remotion/media-utils";
-import music from "./music.mp3";
 
-export const AudioVisualizer: React.FC<{color?:string, source:string, rotate:string}> = (
-  {children, color="white", source, rotate}
-) => {
+export const AudioVisualizer: React.FC<{color?:string, source:string, rotate:string}> = ({children, color="white", source, rotate}) => {
     const frame = useCurrentFrame();
     const { fps, width } = useVideoConfig();
-    const audioData = useAudioData(music);
+    const audioData = useAudioData(source);
 
     if (!audioData) {
         return null;
