@@ -115,7 +115,7 @@ export const MyComposition = () => {
             >
                 <AudioVisualizer source={AUDIO_TRACK} color="gold" rotate="105.8deg" />
             </div>
-            <MokiChibiHop jumpHeight={50} />
+            <MokiChibiHop jumpHeight={200} />
         </>
     );
 };
