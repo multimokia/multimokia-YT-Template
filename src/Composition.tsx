@@ -11,6 +11,9 @@ import './main.css';
 import { VideoTitleSubtitle } from "./TitleSubtitle";
 import { MokiChibiHop } from "./MokiChibiHop";
 import { FadeInOut } from "./FadeInOut";
+import { NotifModal } from "./NotifModal";
+
+import patreonLogo from "./img/patreon.png";
 
 const VIDEO_TITLE = process.env.REMOTION_TITLE || "";
 const VIDEO_SUBTITLE = process.env.REMOTION_SUBTITLE || "";
@@ -88,7 +91,8 @@ export const MyComposition = () => {
                     width: "100%",
                     height: "25%",
                     background: "rgba(0,0,0,0.7)",
-                    boxShadow: "0px 0px 15px 15px rgba(0,0,0,0.9)",
+                    boxShadow: "0px 0px 7px 7px rgba(0,0,0,0.9)",
+                    backdropFilter: "blur(20px)",
                 }}
             />
             <h1
@@ -116,6 +120,67 @@ export const MyComposition = () => {
                 <AudioVisualizer source={AUDIO_TRACK} color="gold" rotate="105.8deg" />
             </div>
             <MokiChibiHop jumpHeight={200} />
+
+            {/* <NotifModal title="Like what I do?">
+                <div
+                    style={{
+                        width: "15%",
+                        float: "left",
+                        marginLeft: "5%",
+                        justifyContent: "right",
+                        verticalAlign: "middle",
+                    }}
+                >
+                    <img src={patreonLogo} style={{maxWidth: "200px"}}/>
+                </div>
+                <div
+                    style={{
+                        width: "80%",
+                        height: "100%",
+                        float: "right",
+                        verticalAlign: "middle",
+                        padding: "2%",
+                    }}
+                >
+                    <small style={{float: "right"}}>{"Consider dropping by at patreon.com/multimokia"}</small>
+                </div>
+            </NotifModal> */}
+            <NotifModal title="Enjoying the music?">
+                <div
+                    style={{
+                        width: "30%",
+                        float: "left",
+                        paddingTop: "3%",
+                        marginLeft: "3%",
+                        justifyContent: "right",
+                        verticalAlign: "middle",
+                    }}
+                >
+                    <div
+                        style={{
+                            width: "85%",
+                            height: "15%",
+                            background: "red",
+                            borderRadius: "20px",
+                            color: "white",
+                            padding: "2px / 0px",
+                        }}
+                    >
+                        <strong>{"subscribe"}</strong>
+                    </div>
+                </div>
+                <div
+                    style={{
+                        width: "67%",
+                        height: "100%",
+                        float: "right",
+                        verticalAlign: "middle",
+                        padding: "2%",
+                    }}
+                >
+                    <small style={{float: "right"}}>{"Please consider leaving a like and subscribing."}</small>
+                </div>
+            </NotifModal>
         </>
     );
 };

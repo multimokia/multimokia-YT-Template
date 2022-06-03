@@ -20,8 +20,8 @@ export const MokiChibiHop: React.FC<{jumpHeight:number}> = ({children, jumpHeigh
     let _amplitude = getWaveformPortion({
         audioData,
         startTimeInSeconds: frame/fps,
-        numberOfSamples: 4,
-        durationInSeconds: 1.3,
+        numberOfSamples: 8,
+        durationInSeconds: 1.35,
     });
 
     let _amplitudechecker = visualizeAudio({
@@ -38,7 +38,7 @@ export const MokiChibiHop: React.FC<{jumpHeight:number}> = ({children, jumpHeigh
     _amplitude.forEach(a => {tot += a.amplitude});
     _amplitudechecker.forEach(a => {avgamplitude += a});
 
-    const isNonZeroAmplitude = avgamplitude >= CLICK_TRACK_AMPLITUDE_THRESHOLD
+    const isNonZeroAmplitude = true//avgamplitude >= CLICK_TRACK_AMPLITUDE_THRESHOLD
     const amplitude = isNonZeroAmplitude ? (tot / _amplitude.length) : 0.0;
     const baseHeight = isNonZeroAmplitude ? (jumpHeight / 2) : 20;
 
