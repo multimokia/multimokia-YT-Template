@@ -1,4 +1,4 @@
-import { useCurrentFrame, useVideoConfig, staticFile } from "remotion";
+import { useCurrentFrame, useVideoConfig } from "remotion";
 import { useAudioData, getWaveformPortion, visualizeAudio } from "@remotion/media-utils";
 import mokismile from "./img/mokichan_smile.png";
 
@@ -20,7 +20,7 @@ export const MokiChibiHop: React.FC<{jumpHeight:number}> = ({children, jumpHeigh
     let _amplitude = getWaveformPortion({
         audioData,
         startTimeInSeconds: frame/fps,
-        numberOfSamples: 8,
+        numberOfSamples: 4,
         durationInSeconds: 1.35,
     });
 
@@ -42,7 +42,6 @@ export const MokiChibiHop: React.FC<{jumpHeight:number}> = ({children, jumpHeigh
     const amplitude = isNonZeroAmplitude ? (tot / _amplitude.length) : 0.0;
     const baseHeight = isNonZeroAmplitude ? (jumpHeight / 2) : 20;
 
-    console.log(amplitude);
     return (
         <div>
             <img

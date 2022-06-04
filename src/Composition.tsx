@@ -121,7 +121,7 @@ export const MyComposition = () => {
             </div>
             <MokiChibiHop jumpHeight={200} />
 
-            {/* <NotifModal title="Like what I do?">
+            <NotifModal title="Like what I do?" startPercent={20}>
                 <div
                     style={{
                         width: "15%",
@@ -144,8 +144,8 @@ export const MyComposition = () => {
                 >
                     <small style={{float: "right"}}>{"Consider dropping by at patreon.com/multimokia"}</small>
                 </div>
-            </NotifModal> */}
-            <NotifModal title="Enjoying the music?">
+            </NotifModal>
+            <NotifModal title="Enjoying the music?" startPercent={2}>
                 <div
                     style={{
                         width: "30%",

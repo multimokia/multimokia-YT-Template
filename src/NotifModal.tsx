@@ -1,6 +1,33 @@
-import { Form, Toast, ToastContainer } from "react-bootstrap";
+import { Toast, ToastContainer } from "react-bootstrap";
+import { interpolate, useCurrentFrame, useVideoConfig } from "remotion";
 
-export const NotifModal: React.FC<{title:string}> = ({children, title}) => {
+export const NotifModal: React.FC<{title:string, startPercent:number, secondsShown?:number}> = ({children, title, startPercent, secondsShown=5}) => {
+    const frame = useCurrentFrame();
+    const { fps, durationInFrames } = useVideoConfig();
+    const startFrame = (startPercent/100) * durationInFrames;
+    const endFrame = startFrame + (secondsShown * fps);
+
+    const fadeTimeInFrames = fps / 2; // fade in half a second
+    let opacity = interpolate(
+        frame,
+        [
+            startFrame,
+            (startFrame + fadeTimeInFrames),
+            endFrame,
+            endFrame + fadeTimeInFrames
+        ],
+        [0, 100, 100, 0]
+    );
+    let blur = interpolate(
+        frame,
+        [
+            startFrame,
+            (startFrame + fadeTimeInFrames),
+            endFrame,
+            endFrame + fadeTimeInFrames
+        ],
+        [25, 0, 0, 25]
+    );
     return (
         <>
           <div
@@ -20,6 +47,8 @@ export const NotifModal: React.FC<{title:string}> = ({children, title}) => {
                 bottom: "27%",
                 right: "15%",
                 borderRadius: "5px",
+                opacity: `${opacity}%`,
+                filter: `blur(${blur}px)`
             }}
           >
             <ToastContainer
