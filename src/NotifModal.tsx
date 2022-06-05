@@ -44,8 +44,8 @@ export const NotifModal: React.FC<{title:string, startPercent:number, secondsSho
                 backdropFilter: "blur(20px)",
                 padding: "5% / 10%",
                 float: "left",
-                bottom: "27%",
-                right: "15%",
+                bottom: "37%", //"32%",
+                right: "25%", //"15%",
                 borderRadius: "5px",
                 opacity: `${opacity}%`,
                 filter: `blur(${blur}px)`

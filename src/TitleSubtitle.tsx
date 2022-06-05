@@ -28,7 +28,7 @@ export const VideoTitleSubtitle: React.FC<{title:string,subtitle:string,minWidth
                 boxShadow: "0 1px 5px rgba(0, 0, 0, 0.9), 0 1px 5px rgba(0, 0, 0, 0.9);",
             }}
         />
-        <h4 style={{margin: 0, paddingLeft: "5%"}}>{subtitle}</h4>
+        <h4 style={{margin: 0, paddingLeft: "5%"}} dangerouslySetInnerHTML={{__html:subtitle}}></h4>
         </div>
     );
 }
