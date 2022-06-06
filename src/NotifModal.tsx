@@ -6,8 +6,11 @@ export const NotifModal: React.FC<{title:string, startPercent:number, secondsSho
     const { fps, durationInFrames } = useVideoConfig();
     const startFrame = (startPercent/100) * durationInFrames;
     const endFrame = startFrame + (secondsShown * fps);
-
     const fadeTimeInFrames = fps / 2; // fade in half a second
+
+    const opacityMax = 100;
+    const blurMax = 25;
+
     let opacity = interpolate(
         frame,
         [
@@ -16,18 +19,10 @@ export const NotifModal: React.FC<{title:string, startPercent:number, secondsSho
             endFrame,
             endFrame + fadeTimeInFrames
         ],
-        [0, 100, 100, 0]
+        [0, opacityMax, opacityMax, 0]
     );
-    let blur = interpolate(
-        frame,
-        [
-            startFrame,
-            (startFrame + fadeTimeInFrames),
-            endFrame,
-            endFrame + fadeTimeInFrames
-        ],
-        [25, 0, 0, 25]
-    );
+    let blur = -blurMax * (opacity / opacityMax) + blurMax;
+
     return (
         <>
           <div
