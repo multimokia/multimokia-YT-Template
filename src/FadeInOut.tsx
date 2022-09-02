@@ -8,7 +8,6 @@ export const FadeInOut: React.FC<{fadeLength:number}> = ({children, fadeLength})
     let opacity = 0;
     if (frame < fadeDurationInFrames) {
         opacity = 100 - ((frame / fadeDurationInFrames) * 100);
-        console.log(opacity);
     }
     else if (frame > durationInFrames - fadeDurationInFrames) {
         opacity = 100 - (((durationInFrames - frame) / fadeDurationInFrames) * 100);

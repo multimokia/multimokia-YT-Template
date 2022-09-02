@@ -32,7 +32,7 @@ export const AudioVisualizer: React.FC<{color?:string, source:string, rotate:str
             return (
             <div
                 style={{
-                    width: 5000 * v,
+                    width: 1000 * v,
                     height: 15,
                     backgroundColor: color,
                     borderRadius: '10px',
