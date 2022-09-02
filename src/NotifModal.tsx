@@ -8,6 +8,11 @@ export const NotifModal: React.FC<{title:string, startPercent:number, secondsSho
     const endFrame = startFrame + (secondsShown * fps);
     const fadeTimeInFrames = fps / 2; // fade in half a second
 
+    //To avoid running interpolate unnecessarily, we'll check if we have to at all
+    if (frame < startFrame || frame > (endFrame + fadeTimeInFrames) ) {
+        return <></>
+    }
+
     const opacityMax = 100;
     const blurMax = 25;
 
