@@ -8,7 +8,7 @@ export const RemotionVideo: React.FC = () => {
         return null;
     }
 
-    const fps = 60;
+    const fps = 30;
     const audioData = useAudioData(AUDIO_TRACK);
 
     if (!audioData) {

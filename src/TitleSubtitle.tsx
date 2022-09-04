@@ -18,7 +18,7 @@ export const VideoTitleSubtitle: React.FC<{title:string,subtitle:string,minWidth
                 borderRadius: "0 5px 5px 0",
             }}
         >
-        <h1 style={{margin: 0, paddingLeft: "5%"}}>{title}</h1>
+        <h1 style={{margin: 0, paddingLeft: "5%"}} dangerouslySetInnerHTML={{__html:title}}></h1>
         <hr
             style={{
                 borderTop: "5px solid gold",
