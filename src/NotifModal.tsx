@@ -1,22 +1,23 @@
+import {Img, staticFile} from 'remotion'
 import { Toast, ToastContainer } from "react-bootstrap";
 import { interpolate, useCurrentFrame, useVideoConfig } from "remotion";
 
-export const NotifModal: React.FC<{title:string, startPercent:number, secondsShown?:number}> = ({children, title, startPercent, secondsShown=5}) => {
+export const NotifModal: React.FC<{ title: string, startPercent: number, secondsShown?: number }> = ({ children, title, startPercent, secondsShown = 5 }) => {
     const frame = useCurrentFrame();
     const { fps, durationInFrames } = useVideoConfig();
-    const startFrame = (startPercent/100) * durationInFrames;
+    const startFrame = (startPercent / 100) * durationInFrames;
     const endFrame = startFrame + (secondsShown * fps);
-    const fadeTimeInFrames = fps / 2; // fade in half a second
+    const fadeTimeInFrames = fps / 2; // Fade in half a second
 
-    //To avoid running interpolate unnecessarily, we'll check if we have to at all
-    if (frame < startFrame || frame > (endFrame + fadeTimeInFrames) ) {
+    // To avoid running interpolate unnecessarily, we'll check if we have to at all
+    if (frame < startFrame || frame > (endFrame + fadeTimeInFrames)) {
         return <></>
     }
 
     const opacityMax = 100;
     const blurMax = 25;
 
-    let opacity = interpolate(
+    const opacity = interpolate(
         frame,
         [
             startFrame,
@@ -26,74 +27,69 @@ export const NotifModal: React.FC<{title:string, startPercent:number, secondsSho
         ],
         [0, opacityMax, opacityMax, 0]
     );
-    let blur = -blurMax * (opacity / opacityMax) + blurMax;
+    const blur = -blurMax * (opacity / opacityMax) + blurMax;
 
     return (
         <>
-          <div
-            aria-live="polite"
-            aria-atomic="true"
-            style={{
-                position: "fixed",
-                minHeight: '5%',
-                minWidth: '50%',
-                maxWidth: '50%',
-                maxHeight: '50%',
-                boxShadow: "0px 0px 7px 7px rgba(0,0,0,0.9)",
-                background: "rgba(0,0,0,0.7)",
-                backdropFilter: "blur(20px)",
-                padding: "5% / 10%",
-                float: "left",
-                bottom: "37%", //"32%",
-                right: "25%", //"15%",
-                borderRadius: "5px",
-                opacity: `${opacity}%`,
-                filter: `blur(${blur}px)`
-            }}
-          >
-            <ToastContainer
-                className="p-3"
-                position={"middle-center"}
+            <div
+                aria-live="polite"
+                aria-atomic="true"
                 style={{
-                    color: "gold",
-                    fontFamily: "Poppins",
-                    fontSize: "350%",
-                    padding: "10px"
+                    position: "fixed",
+                    minHeight: '5%',
+                    minWidth: '50%',
+                    maxWidth: '50%',
+                    maxHeight: '50%',
+                    boxShadow: "0px 0px 7px 7px rgba(0,0,0,0.9)",
+                    background: "rgba(0,0,0,0.7)",
+                    backdropFilter: "blur(20px)",
+                    padding: "5% / 10%",
+                    float: "left",
+                    bottom: "37%", // "32%",
+                    right: "25%", // "15%",
+                    borderRadius: "5px",
+                    opacity: `${opacity}%`,
+                    filter: `blur(${blur}px)`
                 }}
             >
-              <Toast>
-                <Toast.Header closeButton={false} style={{}}>
-                  <img
-                    src="holder.js/20x20?text=%20"
-                    className="rounded me-2"
-                    alt=""
-                  />
-                  <strong className="me-auto" style={{marginLeft: "2%"}}>{title} </strong>
-                  <hr
+                <ToastContainer
+                    className="p-3"
+                    position="middle-center"
                     style={{
-                        //borderTop: "3px solid gold",
-                        boxShadow: "0 1px 5px rgba(0, 0, 0, 0.9), 0 1px 5px rgba(0, 0, 0, 0.9)",
+                        color: "gold",
+                        fontFamily: "Poppins",
+                        fontSize: "350%",
+                        padding: "10px"
                     }}
-                    />
-                </Toast.Header>
-                <Toast.Body
-                    style={{
-                        textAlign: "center",
-                        boxSizing: "border-box",
-                        maxHeight: "10%",
-                        overflow: "hidden",
-                        verticalAlign: "middle",
-                    }}>
-                        {children}
-                </Toast.Body>
-              </Toast>
-            </ToastContainer>
-          </div>
+                >
+                    <Toast>
+                        <Toast.Header closeButton={false} style={{}}>
+                            <strong className="me-auto" style={{ marginLeft: "2%" }}>{title} </strong>
+                            <hr
+                                style={{
+                                    // BorderTop: "3px solid gold",
+                                    boxShadow: "0 1px 5px rgba(0, 0, 0, 0.9), 0 1px 5px rgba(0, 0, 0, 0.9)",
+                                }}
+                            />
+                        </Toast.Header>
+                        <Toast.Body
+                            style={{
+                                textAlign: "center",
+                                boxSizing: "border-box",
+                                maxHeight: "10%",
+                                overflow: "hidden",
+                                verticalAlign: "middle",
+                            }}>
+                            {children}
+                        </Toast.Body>
+                    </Toast>
+                </ToastContainer>
+            </div>
         </>
-      );
-    }
+    );
+}
 
-//     return (
+//     Return (
 //         <div
 //             style={{
 //                 position: "fixed",

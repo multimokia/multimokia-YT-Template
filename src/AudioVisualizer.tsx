@@ -23,12 +23,12 @@ export const AudioVisualizer: React.FC<{color?:string, source:string, rotate:str
     return (
         <div
             style={{
-              //transform: `rotate(${rotate})`,
-              //width: width
+              // transform: `rotate(${rotate})`,
+              // width: width
             }}
         >
         <Audio src={source} />
-        {visualization.map((v, i) => {
+        {visualization.map((v) => {
             return (
             <div
                 style={{

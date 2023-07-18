@@ -1,4 +1,4 @@
-export const VideoTitleSubtitle: React.FC<{title:string,subtitle:string,minWidth:string}> = ({children, title, subtitle, minWidth}) => {
+export const VideoTitleSubtitle: React.FC<{title:string,subtitle:string,minWidth:string}> = ({title, subtitle, minWidth}) => {
     return (
         <div
             style={{
@@ -13,12 +13,15 @@ export const VideoTitleSubtitle: React.FC<{title:string,subtitle:string,minWidth
                 paddingRight: "3%",
                 paddingTop: "0.5%",
                 paddingBottom: "0.5%",
-                minWidth: minWidth,
+                minWidth,
                 backdropFilter: "blur(20px)",
                 borderRadius: "0 5px 5px 0",
             }}
         >
-        <h1 style={{margin: 0, paddingLeft: "5%"}} dangerouslySetInnerHTML={{__html:title}}></h1>
+        <h1
+            dangerouslySetInnerHTML={{__html:title}}
+            style={{margin: 0, paddingLeft: "5%"}}
+        />
         <hr
             style={{
                 borderTop: "5px solid gold",
@@ -28,7 +31,10 @@ export const VideoTitleSubtitle: React.FC<{title:string,subtitle:string,minWidth
                 boxShadow: "0 1px 5px rgba(0, 0, 0, 0.9), 0 1px 5px rgba(0, 0, 0, 0.9);",
             }}
         />
-        <h4 style={{margin: 0, paddingLeft: "5%"}} dangerouslySetInnerHTML={{__html:subtitle}}></h4>
+        <h4
+            dangerouslySetInnerHTML={{__html:subtitle}}
+            style={{margin: 0, paddingLeft: "5%"}}
+        />
         </div>
     );
 }

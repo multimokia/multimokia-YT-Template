@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable react/jsx-closing-tag-location */
-/* eslint-disable @remotion/warn-native-media-tag */
-import { random, useCurrentFrame, useVideoConfig, staticFile } from "remotion";
+
+import { Img, random, useCurrentFrame, useVideoConfig } from "remotion";
 import { AudioVisualizer } from "./AudioVisualizer";
 import styled from 'styled-components'
 import wingBottomLeft from "./img/wing_bottomleft.png";
@@ -27,11 +26,11 @@ function randomNumber(seed: number, min: number, max: number) {
 }
 
 const amplitude = 10;
-const innerCoeffX = 4; //randomNumber(1,10);
-const finalCoeffX = 0.2; //randomNumber(-1,1);
+const innerCoeffX = 4; // randomNumber(1,10);
+const finalCoeffX = 0.2; // randomNumber(-1,1);
 
-const innerCoeffY = 6;//randomNumber(1,10);
-const finalCoeffY = -0.5;//randomNumber(-1,1);
+const innerCoeffY = 6; // randomNumber(1,10);
+const finalCoeffY = -0.5; // randomNumber(-1,1);
 
 const slowRate = 7;
 
@@ -63,7 +62,7 @@ export const MyComposition = () => {
                 subtitle={VIDEO_SUBTITLE}
                 minWidth="50%"
             />
-            <img
+            <Img
                 style={{
                     position: "absolute",
                     bottom: 0,
@@ -72,7 +71,7 @@ export const MyComposition = () => {
                 }}
                 src={wingBottomLeft}
             />
-            <img
+            <Img
                 style={{
                     position: "absolute",
                     top: 0,
@@ -131,7 +130,7 @@ export const MyComposition = () => {
                         verticalAlign: "middle",
                     }}
                 >
-                    <img src={patreonLogo} style={{maxWidth: "200px"}}/>
+                    <Img src={patreonLogo} style={{maxWidth: "200px"}}/>
                 </div>
                 <div
                     style={{
@@ -142,7 +141,7 @@ export const MyComposition = () => {
                         padding: "2%",
                     }}
                 >
-                    <small style={{float: "right"}}>{"Consider dropping by at patreon.com/multimokia"}</small>
+                    <small style={{float: "right"}}>Consider dropping by at patreon.com/multimokia</small>
                 </div>
             </NotifModal>
             <NotifModal title="Enjoying the music?" startPercent={2}>
@@ -166,7 +165,7 @@ export const MyComposition = () => {
                             padding: "2px / 0px",
                         }}
                     >
-                        <strong>{"subscribe"}</strong>
+                        <strong>subscribe</strong>
                     </div>
                 </div>
                 <div
@@ -178,7 +177,7 @@ export const MyComposition = () => {
                         padding: "2%",
                     }}
                 >
-                    <small style={{float: "right"}}>{"Please consider leaving a like and subscribing."}</small>
+                    <small style={{float: "right"}}>Please consider leaving a like and subscribing.</small>
                 </div>
             </NotifModal>
         </>

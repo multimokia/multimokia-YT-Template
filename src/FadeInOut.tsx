@@ -24,7 +24,6 @@ export const FadeInOut: React.FC<{fadeLength:number}> = ({children, fadeLength})
                 opacity: `${opacity}%`,
                 zIndex: 1000,
             }}
-        >
-        </div>
+        />
     );
 }

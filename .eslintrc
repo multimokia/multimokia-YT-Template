@@ -1,3 +1,7 @@
 {
-	"extends": "@remotion"
+	"extends": "@remotion",
+    "rules": {
+        "capitalized-comments": "off",
+        "react/no-danger": "off" //Since all unsafe is loaded via an env file, running entirely locally, this is irrelevant
+    }
 }
